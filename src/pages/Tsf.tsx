@@ -7,20 +7,19 @@ import "./styles.scss";
 import { scrollTo } from "../utils";
 import { ToastContainer, toast, cssTransition } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Head_bg from "../assets/crash.jpg";
-import HeaderLogo from "../assets/sawal.png";
-import aa from "../assets/last.png";
-import Headline from "../assets/headline_spandeb1.png";
+import Head_bg from "../assets/emily.png";
 import {  Link } from 'react-router-dom';
+import Headline from "../assets/emily.png";
+
 // google tag manager
 
 const tagManagerArgs = {
   gtmId: "GTM-KZJBC3B",
 };
 
-TagManager.initialize(tagManagerArgs);
+// TagManager.initialize(tagManagerArgs);
 
-export default function Fifth_SP() {
+export default function Tsf() {
 
   const SlideUp = cssTransition({
     enter: "toast-enter",
@@ -28,11 +27,11 @@ export default function Fifth_SP() {
   });
   
   const messages = [
-    "Emily A. Rodriguez from Miami, FL just qualified for a $3,600 Grocery Allowance.",
-    "Michael D. Johnson from Dallas, TX just qualified for a $3,600 Grocery Allowance.",
-    "Sophia L. Thompson from Los Angeles, CA just qualified for a $3,600 Grocery Allowance.",
-    "Ethan M. Baker from Chicago, IL just qualified for a $3,600 Grocery Allowance.",
-    "Ava K. Campbell from Seattle, WA just qualified for a $3,600 Grocery Allowance."
+    "Emily A. Rodriguez from Miami, FL just qualified for a $3,900 Food Allowance.",
+    "Michael D. Johnson from Dallas, TX just qualified for a $3,900 Food Allowance.",
+    "Sophia L. Thompson from Los Angeles, CA just qualified for a $3,900 Food Allowance.",
+    "Ethan M. Baker from Chicago, IL just qualified for a $3,900 Food Allowance.",
+    "Ava K. Campbell from Seattle, WA just qualified for a $3,900 Food Allowance."
   ];
   
   // Function to shuffle array in place
@@ -52,8 +51,8 @@ export default function Fifth_SP() {
   
     // Make the word "Allowance" bold in all lines
     boldedMessage = boldedMessage.replace(
-      /\$3,600 Grocery Allowance/g,
-      '<strong class="green-bold">$3,600 Grocery Allowance</strong>'
+      /\$3,900 Food Allowance/g,
+      '<strong class="green-bold">$900 Food Allowance</strong>'
     );
   
     // Make specific dollar amounts bold only in specific lines
@@ -83,7 +82,7 @@ export default function Fifth_SP() {
     const delayedEffect = setTimeout(() => {
       // Create a function to handle the logic
       const showRandomToast = () => {
-        const randomTime = 6000;
+        const randomTime = 20000;
         const randomMessage =
           messages[Math.floor(Math.random() * messages.length)];
         notify(randomMessage);
@@ -102,7 +101,7 @@ export default function Fifth_SP() {
       return () => {
         clearInterval(timer);
       };
-    }, 6000); // 6-second delay before the useEffect code runs
+    }, 20000); // 6-second delay before the useEffect code runs
   
     // Cleanup for the setTimeout
     return () => {
@@ -125,7 +124,7 @@ export default function Fifth_SP() {
   //   fetchUserLocation();
   // }, []);
   useEffect(() => {
-    window.document.title = "Seniors Saving Journal";
+    window.document.title = "Senior's Allowance Program 2024";
 
     axios
       .get(process.env.REACT_APP_PROXY + `/visits/8`)
@@ -197,14 +196,12 @@ export default function Fifth_SP() {
     });
   };
 
-  const [quiz, setQuiz] = useState("Select Your Age:  ");
+  const [quiz, setQuiz] = useState("Are you over the age of 64?  ");
   const [step, setStep] = useState("process");
   const [min, setMin] = useState(3);
   const [second, setSecond] = useState<any>(0);
-  const [yes,setYes]=useState("55-64")
-  const [no,setNo]=useState("65-74")
-  const [third,setThird]=useState("75+")
-  const [fourth, setFourth] = useState("Under 55");
+  const [yes,setYes]=useState("YES, I'M 65 OR OLDER")
+  const [no,setNo]=useState("NO, I'M 64 OR YOUNGER")
   
 
   const stepProcess = () => {
@@ -270,13 +267,10 @@ export default function Fifth_SP() {
 
   const handleQuizP = () => {
     topScroll("btn");
-    if (quiz === "Select Your Age:  ") {
+    if (quiz === "Are you over the age of 64?  ") {
       setYes("Yes")
       setNo("No")
-      setThird("Skip")
-      setFourth("No");
-      
-      setQuiz("Are you on Medicare Parts A & B?");
+      setQuiz("2. Do you live in the United States?");
     } else {
       setStep("Reviewing Your Answers...");
      
@@ -311,9 +305,7 @@ export default function Fifth_SP() {
     if (quiz === "Are you over the age of 60?  ") {
       setYes("Yes")
       setNo("No")
-      setThird("Skip")
-      setFourth("Skip");
-      setQuiz("Are you on Medicare Parts A & B?");
+      setQuiz("2. Do you live in the United States?");
     } else {
       setStep("Reviewing Your Answers...");
     
@@ -345,31 +337,27 @@ export default function Fifth_SP() {
 
   return (
     <div>
-     {/* <ToastContainer /> */}
-     <div  className="top-sticky-blue-test2" id="top">
-     <img src={aa} alt="Description of " style={{ height: '74%', maxWidth: '74%', }} />
-  </div>
-
+{/*      <ToastContainer /> */}
+      <div style={{marginBottom:'4px'}} className="top-sticky-blue-test2" id="top">
+      Senior's Allowance Program 2024
+      </div>
       {step === "process" ? (
         <>
           <div className="main-container-5">
-            
             <div className="main-descrition-5-5">
-              
               <div className="main-des-title-6-7">
-            
                 <b>
-                Medicare Beneficiaries May Be Eligible For New Benefits. Click Below To Check Eligibility.
+                Americans Over 65 Can Now Qualify For The $900 Food Allowance Card Under 2024 Medicare Policy!
                 </b>
               </div>
               {/* <img className='topic-img-larger' src = {Headline} alt = "head"/> */}
               <img className="topic-img-middle-z" src={Head_bg} alt="head" />
               <div  style={{marginTop:'14px'}}className="main-des-5">
-              {/* Americans over 65 years old may be eligible to claim the 2024 Grocery Allowance Card Americans may use the funds to fully cover their Groceries, Medicines, etc. */}
-              <b>How it works:</b> Complete this survey to check your eligibility.
+              Americans over 65 years old can claim the 2024 Food Allowance Card that gives them up to $900. Americans can use the funds to fully cover their Food, Prescriptions at Walmart and thousands of other participating stores!
+
               </div>
               <div className="main-des-5"  style={{marginTop:'-5px'}}>
-              {/* If you have not yet claimed your monthly allowance then answer the questions below and once approved <b>you will have your $3,600 Grocery Allowance mailed to you within a few days ready for use!</b> */}
+              If you have not yet claimed your monthly allowance then answer the questions below and once approved <b>you will have your $900 Food Allowance mailed to you within a few days ready for use!</b>
               </div>
               {/* <div className='main-des-5' style = {{marginTop:"1rem"}}><b>Simplemente responda las siguientes preguntas:</b></div> */}
             </div>
@@ -378,17 +366,11 @@ export default function Fifth_SP() {
                 {quiz}
               </div>
               <div  className="answer">
-              {quiz === "Select Your Age:  " && <div className="answer-btn-5" onClick={handleQuizP} style={{"textTransform": "capitalize"}}>
-              {fourth}
-                </div>}
                 <div className="answer-btn-5" onClick={handleQuizP}>
               {yes}
                 </div>
                 <div className="answer-btn-5" onClick={handleQuizN}>
               {no}
-                </div>
-               <div className="answer-btn-5" onClick={handleQuizP}>
-              {third}
                 </div>
               </div>
             </div>
@@ -400,57 +382,40 @@ export default function Fifth_SP() {
         </div>
       ) : (
         <div className="checking">
-          <div className="congrats">Congratulations!</div>
+          <div className="congrats">Congratulations, You Qualify!</div>
           <div className="top-description-5">
-          Tap Below And Speak To A Licensed Insurance Agent About Medicare Plans you may be eligible for
+            Make A <b>Quick Call</b> To Claim Your Food Allowance!
           </div>
-          {/* <div className="spots-count">Spots remaining: 4</div> */}
-          <div className="tap-direction">👇 TAP BELOW TO CALL  👇</div>
-          <a href="tel:+18446720874">
-            <div className="call-btn" onClick={handleCall}>
-            CALL (844) 672-0874 | TTY 711
-            </div>
-          </a>
-          {/* <div className="sub-title">We Have Reserved Your Spot</div> */}
+          <div className="spots-count">Spots remaining: 4</div>
+          <div className="tap-direction">👇 TAP BELOW TO CALL 👇</div>
+          <a href="tel:+13236897861">             <div className="call-btn" onClick={handleCall}>             CALL (323) 689-7861             </div>           </a>
           <div className="sub-description">
-          {/* Your spot is reserved so call within the next 5 minutes. */}
+          Make sure to ask for medicare benefit for your area in order to receive the <b> Highest Possible Allowance.</b>
           </div>
-          {/* <div className="timer">
+          <div className="sub-title">We Have Reserved Your Spot</div>
+          <div className="sub-description">
+            Due to high call volume, your official agent is waiting for only{" "}
+            <b>3 minutes</b>, then your spot will not be reserved.
+          </div>
+          <div className="timer">
             <div className="timer-cell">{min}</div>
             <div className="timer-cell">:</div>
             <div className="timer-cell">{second}</div>
-          </div> */}
+          </div>
         </div>
       )}
       <div className="footer2">
-      <p>We represent Medicare Advantage HMO, PPO and PFFS organizations and stand-alone PDP prescription drug plans that are contracted with Medicare. Enrollment depends on the plan’s contract renewal."
-				</p>
-				<p>Not all plans offer all of these benefits. Benefits may vary by carrier and location. Limitations and exclusions may apply.
-				</p>
-				<p>Enrollment in Medicare/Medicare Advantage may be limited to certain times of the year unless you qualify for a Special Enrollment Period
-
-				</p>
-				<p>seniorwelfarebenefits.com is not connected with or endorsed by the US government or Federal Medicare program. This website is a solicitation for insurance and Medicare Advantage, Part D or Medicare supplement insurance comparison services. Medicare supplement insurance is available to those age 65 or older enrolled in Medicare Parts A and B, and in some states to those under age 65 eligible to Medicare due to disability or end stage renal disease.
-				</p>
-				<p>We do not offer every plan available in your area. Currently we represent [insert number of organizations] organizations which offer [insert number of plans] products in your area. Please contact Medicare.gov, 1–800–MEDICARE, or your local State Health Insurance Program (SHIP) to get information on all of your options.</p>
-        <div className="terms2">
-
-        <Link to="/terms-and-conditions">Terms & Conditions</Link> | 
-        <Link to="/privacy-policy">Privacy Policy</Link>
+      <div className="terms2">
+          <Link to="/terms-and-conditions">Terms & Conditions</Link> | 
+          <Link to="/privacy-policy">Privacy Policy</Link>
         </div>
-        <div>
-        
-        <hr/>
-        </div>
+        {/* <div className="terms2">Terms & Conditions | Privacy Policy</div> */}
         <div className="copyright">
-          
-        
+          Copyright © 2024 - All right reserved Daily America Savings.
         </div>
-
-<p>G2 Licensed Agent : Jessica Johanna Rodriguez</p>
         {/* <p>{zipCode} </p> */}
       </div>
-      {/* <ToastContainer
+{/*       <ToastContainer
         position="bottom-right"
         autoClose={5000}
         newestOnTop={false}
